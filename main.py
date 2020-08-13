@@ -15,16 +15,19 @@ if __name__ == "__main__":
     ACCIONES DISPONIBLES
         -[R]egistro
         -[L]ogin
-    """)
+    """)# se solicita una opción
     
+    #se instancia un objeto de tipo acciones
     hazE1= acciones.Acciones()
     accion= input("¿Que quieres hacer?: ")
     accion= accion.lower()
 
     if accion=="r":
+        #se usa la función resgistro de nuestro objeto 
         hazE1.registro()                          
 
     elif accion=="l":
+        #se usa la función resgistro de nuestro objeto
         hazE1.login()
         
         
