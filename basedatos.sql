@@ -10,8 +10,8 @@ CREATE TABLE usuarios(
     email       VARCHAR(255) not NULL ,
     password    VARCHAR(255) NOT NULL,
     fecha       date not NULL ,
-    CONSTRAINT pk_usuarios PRIMARY KEY(id), /* clave primaria */
-    CONSTRAINT uq_email UNIQUE(email) /* campo unico */
+    CONSTRAINT pk_usuarios PRIMARY KEY(id),
+    CONSTRAINT uq_email UNIQUE(email)
 )ENGINE=InnoDb;
 
 CREATE TABLE notas(
@@ -21,5 +21,5 @@ CREATE TABLE notas(
     descripcion MEDIUMTEXT,
     fecha       date not NULL,
     CONSTRAINT pk_notas PRIMARY KEY(id),
-    CONSTRAINT fk_nota_usuario FOREIGN KEY(usuario_id) REFERENCES usuarios(id),
+    CONSTRAINT fk_nota_usuario FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
     )ENGINE=InnoDb;

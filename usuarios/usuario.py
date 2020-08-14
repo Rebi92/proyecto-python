@@ -1,5 +1,6 @@
-import mysql.connector
+import mysql.connector #conector a base de datos
 import datetime #metodo para fechas
+import hashlib #modulo para cifrar la contraseña
 
 #conexión a la base de datos
 database= mysql.connector.connect(
@@ -25,8 +26,16 @@ class Usuario:
     
     def registrar(self):
         fecha= datetime.datetime.now()
+
+        #cifrar contraseña
+        cifrado= hashlib.sha256()#instanaciamos un objeto con el tipo de cifrado que vamos a usar
+        cifrado.update(self.password.encode('utf8'))
+        #me permite pasarle un dato para cifrarlo
+        #encode transformara la variable str a bite para ser cifrada
+
+
         sql="INSERT INTO usuarios VALUES(null, %s,%s,%s,%s,%s)"# con %s se ingresa los datos de una tupla
-        usuario= (self.nombre, self.apellido, self.email, self.password, fecha)
+        usuario= (self.nombre, self.apellido, self.email, cifrado.hexdigest(), fecha)
         try:
             cursor.execute(sql, usuario)
             database.commit()

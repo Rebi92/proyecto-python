@@ -16,9 +16,9 @@ class Acciones:
         registro= usuario.registrar()
 
         if registro[0]>=1:
-            print(f"Perfecto {registro[1].nombre} te has registrado con el email {registro[1].email}")
+            print(f"\nPerfecto {registro[1].nombre} te has registrado con el email {registro[1].email}")
         else:
-            print("no te has registrado correctamente")
+            print("\nno te has registrado correctamente")
 
 
 
@@ -29,7 +29,7 @@ class Acciones:
         self.password= input('Introduce tu contraseña: ')
 
 
-    def validarCorreo(self):
+    """ def validarCorreo(self):
         #se validara si el correo ingresado es realmente el que el 
         #usuario desea
         email = input("Introduce el correo: ")
@@ -45,4 +45,4 @@ class Acciones:
             else:
                 print("El correo no coincide")
 
-        return email
+        return email """
