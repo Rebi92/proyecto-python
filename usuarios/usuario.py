@@ -28,7 +28,7 @@ class Usuario:
         fecha= datetime.datetime.now()
 
         #cifrar contraseña
-        cifrado= hashlib.sha256()#instanaciamos un objeto con el tipo de cifrado que vamos a usar
+        cifrado= hashlib.sha256()#instanciamos un objeto con el tipo de cifrado que vamos a usar
         cifrado.update(self.password.encode('utf8'))
         #me permite pasarle un dato para cifrarlo
         #encode transformara la variable str a bite para ser cifrada
