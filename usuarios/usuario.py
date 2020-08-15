@@ -1,8 +1,9 @@
 import datetime #metodo para fechas
 import hashlib #modulo para cifrar la contraseña
 import usuarios.conexion as conexion
-#conexión a la base de datos
 
+
+#conexión a la base de datos
 connect=conexion.conectar()
 database= connect[0]
 cursor= connect[1]
@@ -38,5 +39,19 @@ class Usuario:
         return result
 
     def identificar(self):
-        return self.nombre
+        #verificar si el usuario esta en la base de datos para logearse
+        #consulta para comprobar si existe contraseña
+        sql = "SELECT * FROM usuarios WHERE email= %s AND password = %s"
+        #cifrar contraseña
+        cifrado= hashlib.sha256()#instanciamos un objeto con el tipo de cifrado que vamos a usar
+        cifrado.update(self.password.encode('utf8'))
+
+        #Datos para la consulta
+        usuario= (self.email, cifrado.hexdigest())
+
+        cursor.execute(sql, usuario)
+        result= cursor.fetchone()
+
+        return result
+
 

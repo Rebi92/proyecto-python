@@ -25,8 +25,23 @@ class Acciones:
     
     def login(self):
         print("\nVale!! Identificate en el sistema")
-        self.email= input("Introduce tu email: ")
-        self.password= input('Introduce tu contraseña: ')
+        try:
+            email= input("Introduce tu email: ")
+            password= input('Introduce tu contraseña: ')
+
+            usuario= modelo.Usuario('','',email , password)
+            login= usuario.identificar()
+            print(login)
+
+            #comparamos si el email introducido es el mismo de la bd
+            if email == login[3]:
+                print(f'\nBienvenido {login[1]}, te has registrado en el sistema el {login[5]}')
+                self.proximasAcciones(login)
+        except Exception as e:
+            print(type(e))
+            print(type(e).__name__)#sacar el nombre del error
+            print(f'Login incorrecto!! intentalo mas tarde')
+
 
 
     """ def validarCorreo(self):

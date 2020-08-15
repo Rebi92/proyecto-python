@@ -14,4 +14,3 @@ def conectar():
     return[database, cursor]
 
 
-    print(database)
