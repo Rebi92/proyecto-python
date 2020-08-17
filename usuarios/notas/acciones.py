@@ -1,4 +1,4 @@
-import notas.nota as modelo
+import usuarios.notas.nota as modelo
 
 class Acciones:
 

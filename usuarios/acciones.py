@@ -1,4 +1,5 @@
 import usuarios.usuario as modelo
+import usuarios.notas.acciones 
 
 class Acciones:
 
@@ -35,8 +36,9 @@ class Acciones:
 
             #comparamos si el email introducido es el mismo de la bd
             if email == login[3]:
-                print(f'\nBienvenido {login[1]}, te has registrado en el sistema el {login[5]}')
+                print(f"\nBienvenido {login[1]}, te has registrado en el sistema el {login[5]}")
                 self.proximasAcciones(login)
+                
         except Exception as e:
             print(type(e))
             print(type(e).__name__)#sacar el nombre del error
@@ -50,10 +52,11 @@ class Acciones:
             -[E]limininar notas
             -[S]alir
          """)
-        accion= input('¿Que quieres hacer?')
+        accion= input('¿Que quieres hacer?: ')
+        hazEl= usuarios.notas.acciones.Acciones()
         
         if accion =='c':
-            pass
+            hazEl.crear(usuario)
             self.proximasAcciones(usuario)
 
         elif accion =='m':
