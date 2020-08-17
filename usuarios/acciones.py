@@ -42,6 +42,32 @@ class Acciones:
             print(type(e).__name__)#sacar el nombre del error
             print(f'Login incorrecto!! intentalo mas tarde')
 
+    def proximasAcciones(self, usuario):
+        print(""" 
+            Acciones disponibles:
+            -[C]rear nota
+            -[M]ostrar notas
+            -[E]limininar notas
+            -[S]alir
+         """)
+        accion= input('¿Que quieres hacer?')
+        
+        if accion =='c':
+            pass
+            self.proximasAcciones(usuario)
+
+        elif accion =='m':
+            pass
+            self.proximasAcciones(usuario)
+
+        elif accion == 'e':
+            pass
+            self.proximasAcciones(usuario)
+
+        elif accion =='s':
+            print(f"Ok {usuario[1]}, hasta pronto")
+            exit()
+
 
 
     """ def validarCorreo(self):
