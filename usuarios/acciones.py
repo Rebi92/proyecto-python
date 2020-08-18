@@ -32,7 +32,7 @@ class Acciones:
 
             usuario= modelo.Usuario('','',email , password)
             login= usuario.identificar()
-            print(login)
+            #print(login)
 
             #comparamos si el email introducido es el mismo de la bd
             if email == login[3]:
@@ -60,11 +60,11 @@ class Acciones:
             self.proximasAcciones(usuario)
 
         elif accion =='m':
-            pass
+            hazEl.mostrar(usuario)
             self.proximasAcciones(usuario)
 
         elif accion == 'e':
-            pass
+            hazEl.borrar(usuario)
             self.proximasAcciones(usuario)
 
         elif accion =='s':
